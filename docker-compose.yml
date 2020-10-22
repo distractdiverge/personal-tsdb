@@ -1,0 +1,20 @@
+version: '3'
+services:
+  influxdb:
+    image: influxdb:1.7
+    environment:
+      - INFLUXDB_DB=personal_tsdb
+      - INFLUXDB_USER=influx_user
+      - INFLUXDB_ADMIN_USER=influx_admin
+      - INFLUXDB_WRITE_USER=influx_write
+      # TODO: Extract NEW passwords to Docker Secrets.... Somehow....
+      - INFLUXDB_USER_PASSWORD=secretP@ssword
+      - INFLUXDB_ADMIN_PASSWORD=sup3rS3cr3tP@ss
+      - INFLUXDB_WRITE_PASSWORD=nope
+    volumes:
+      - $PWD/containers/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
+      - $PWD/containers/influxdb/data:/var/lib/influxdb
+    expose:
+      - 8086:8086 # HTTP API Port
+      - 2003:2003 # Graphite Support
+    

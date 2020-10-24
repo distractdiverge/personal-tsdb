@@ -23,7 +23,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "tsc --build tsconfig.json"
+    "build": "tsc --build tsconfig.json",
+    "dev": "ts-node ./src/index.ts"
   },
   "bugs": {
     "url": "https://github.com/alexlapinski/personal-tsdb/issues",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@types/node": "^14.14.2",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.3"
   }
 }

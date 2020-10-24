@@ -24,7 +24,8 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "build": "tsc --build tsconfig.json",
-    "dev": "ts-node ./src/index.ts"
+    "dev": "ts-node ./src/index.ts",
+    "docker-build": "docker build -t $DOCKER_USERNAME/example-node-service ."
   },
   "bugs": {
     "url": "https://github.com/alexlapinski/personal-tsdb/issues",

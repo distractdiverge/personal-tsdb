@@ -14,7 +14,7 @@ services:
     volumes:
       - $PWD/containers/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
       - $PWD/containers/influxdb/data:/var/lib/influxdb
-    expose:
+    ports:
       - 8086:8086 # HTTP API Port
       - 2003:2003 # Graphite Support
     

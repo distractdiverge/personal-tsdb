@@ -23,7 +23,7 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "tsc --build tsconfig.json",
+    "build": "tsc --build tsconfig.json .",
     "dev": "ts-node ./src/index.ts",
     "start": "node ./lib/index.js",
     "docker-build": "docker build -t $DOCKER_USERNAME/example-node-service .",

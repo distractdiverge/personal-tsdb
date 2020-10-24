@@ -1,4 +1,3 @@
-import axios, { AxiosRequestConfig } from 'axios';
 import fastify from 'fastify'
 import { FastifyInstance, RouteShorthandOptions } from 'fastify'
 import { Server, IncomingMessage, ServerResponse } from 'http';
@@ -26,7 +25,9 @@ const main = async () => {
         reply.code(200).send({ pong: 'it worked!' });
     });
 
-    server.listen(3000, function (err, address) {
+    const port = process.env.PORT || 3000;
+    const host = process.env.HOST || '0.0.0.0';
+    server.listen(port, host, function (err, address) {
         if (err) {
           server.log.error(err)
           process.exit(1)

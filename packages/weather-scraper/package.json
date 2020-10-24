@@ -22,10 +22,12 @@
     "url": "git+https://github.com/alexlapinski/personal-tsdb.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "tsc --build tsconfig.json"
   },
   "bugs": {
-    "url": "https://github.com/alexlapinski/personal-tsdb/issues"
+    "url": "https://github.com/alexlapinski/personal-tsdb/issues",
+    "build": "tsc --build tsconfig.json"
   },
   "dependencies": {
     "axios": "^0.20.0",

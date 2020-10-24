@@ -45,7 +45,7 @@ const main = async () => {
         }
     };
 
-    server.get('/ping', opts, (request, reply) => {
+    server.get('/ping', opts, (_, reply) => {
         console.log((<any>reply).res); // this is the http.ServerResponse with correct typings!
         reply.code(200).send({ pong: 'it worked!' });
     });

@@ -1,35 +1,15 @@
-import fastify from 'fastify'
-import { FastifyInstance, RouteShorthandOptions } from 'fastify'
+import fastify from 'fastify';
+import { FastifyInstance } from 'fastify';
+import Metrics from 'fastify-metrics';
 import { Server, IncomingMessage, ServerResponse } from 'http';
 
+import { IndexRoute } from './routes';
 import { PingRoutes } from './routes/ping';
 import { WeatherRoutes } from './routes/weather';
-
-const getPortOrDefault = (defaultPort: number) => {
-    let port;
-    const rawPort = process.env.PORT;
-    if (rawPort) {
-        try {
-            port = parseInt(rawPort, 10);       
-        } catch (e) {
-            console.error(e.message);
-        }
-    }
-
-    return port || defaultPort;
-}
+import getConfig from './config';
 
 const main = () => {
-    const config = {
-        fastify: {
-            enableLogger: true,
-            port: getPortOrDefault(3000),
-            host: process.env.HOST || '0.0.0.0',
-        },
-        influxdb: {
-            url: '?://localhost:27017/'
-        },
-    };
+    const config = getConfig();
 
     const server: FastifyInstance<Server, IncomingMessage, ServerResponse> = fastify({
         logger: config.fastify.enableLogger,
@@ -40,9 +20,12 @@ const main = () => {
     //    url: config.influxdb.url,
     //});
 
+    server.register(Metrics, { endpoint: '/metrics'});
     server.register(PingRoutes);
     server.register(WeatherRoutes);
+    server.register(IndexRoute);
 
+    server.log.info(`server listening on ${config.fastify.host}`);
     server.listen(config.fastify.port, config.fastify.host, function (err, address) {
         if (err) {
           server.log.error(err);

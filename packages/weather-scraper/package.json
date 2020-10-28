@@ -35,7 +35,10 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-    "fastify": "^3.7.0"
+    "dotenv": "^8.2.0",
+    "fastify": "^3.7.0",
+    "fastify-metrics": "^6.0.2",
+    "fastify-routes": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.2",

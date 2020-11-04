@@ -3,11 +3,26 @@
     "configurations": [
 
         {
-            "name": "ts-node",
+            "name": "Launch Server",
             "type": "node",
             "request": "launch",
             "args": [
                 "./src/index.ts"
+            ],
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "cwd": "${workspaceRoot}/packages/weather-scraper/",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "Launch Batch",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "./src/batch.ts"
             ],
             "runtimeArgs": [
                 "-r",

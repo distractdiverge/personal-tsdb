@@ -7,9 +7,9 @@ export async function PingRoutes(fastify: FastifyInstance, options: any) {
             200: {
                 type: 'object',
                 properties: {
-                pong: {
-                    type: 'string'
-                }
+                    pong: {
+                        type: 'string'
+                    }
                 }
             }
             }

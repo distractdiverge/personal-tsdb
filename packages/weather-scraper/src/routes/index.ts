@@ -6,7 +6,7 @@ export async function IndexRoute(fastify: FastifyInstance, options: any) {
     };
 
     // @ts-ignore
-    fastify.get('/', opts, (_, reply) => ({
+    fastify.get('/', opts, () => ({
         ['/ping']: { method: 'GET' },
         ['/weather']: { method: 'GET' },
         ['/metrics']: { method: 'GET' },

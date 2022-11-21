@@ -38,7 +38,7 @@
     "config": "^3.3.2",
     "convict": "^6.0.0",
     "dotenv": "^8.2.0",
-    "fastify": "^3.7.0",
+    "fastify": "^3.29.4",
     "fastify-metrics": "^6.0.2",
     "fastify-routes": "^3.0.1"
   },

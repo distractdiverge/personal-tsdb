@@ -36,7 +36,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "config": "^3.3.2",
-    "convict": "^6.0.0",
+    "convict": "^6.2.4",
     "dotenv": "^8.2.0",
     "fastify": "^3.7.0",
     "fastify-metrics": "^6.0.2",
